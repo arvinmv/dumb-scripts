@@ -1,0 +1,1 @@
+Script to automate my workout when I don't feel like planning it for the day
