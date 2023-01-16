@@ -75,7 +75,7 @@ leg_workouts = [
     "Jump Rope"
 ]
 
-split = input("Please select a workout split (push, pull, or leg): ")
+split = input("Please select a workout split (push, pull, or legs): ")
 
 split = split.lower()
 
@@ -83,13 +83,15 @@ if split == "push":
     selected_workouts = random.sample(push_workouts, 8)
 elif split == "pull":
     selected_workouts = random.sample(pull_workouts, 8)
-elif split == "leg":
+elif split == "legs":
     selected_workouts = random.sample(leg_workouts, 8)
 else:
-    print("Invalid selection. Please choose 'push', 'pull', or 'leg'.")
+    selected_workouts = []
+    print("Invalid selection. Please choose 'push', 'pull', or 'legs'.")
 
-print("Here are your 8 random workouts for the {} split:".format(split))
-for workout in selected_workouts:
-    print(workout)
+if selected_workouts:
+    print("Here are your 8 random workouts for the {} split:".format(split))
+    for workout in selected_workouts:
+        print(workout)
 
 # TODO: Automate to integrate with email
