@@ -69,7 +69,6 @@ leg_workouts = [
     "Leg Extension",
     "Leg Curl",
     "Calf Raise",
-    "Box Jump",
     "Burpee",
     "Mountain Climber",
     "Jump Rope"
@@ -80,11 +79,11 @@ split = input("Please select a workout split (push, pull, or legs): ")
 split = split.lower()
 
 if split == "push":
-    selected_workouts = random.sample(push_workouts, 8)
+    selected_workouts = random.sample(push_workouts, min(len(push_workouts), 8))
 elif split == "pull":
-    selected_workouts = random.sample(pull_workouts, 8)
+    selected_workouts = random.sample(pull_workouts, min(len(pull_workouts), 8))
 elif split == "legs":
-    selected_workouts = random.sample(leg_workouts, 8)
+    selected_workouts = random.sample(leg_workouts, min(len(leg_workouts), 8))
 else:
     selected_workouts = []
     print("Invalid selection. Please choose 'push', 'pull', or 'legs'.")
