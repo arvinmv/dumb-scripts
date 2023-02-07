@@ -1,4 +1,8 @@
 import random
+import os
+from todoist_api_python.api import TodoistAPI
+
+api = TodoistAPI(os.environ["TODOIST_API_TOKEN"])
 
 # List of push workouts
 push_workouts = [
@@ -91,6 +95,8 @@ else:
 if selected_workouts:
     print("Here are your 8 random workouts for the {} split:".format(split))
     for workout in selected_workouts:
-        print(workout)
-
-# TODO: Automate to integrate with email
+        try:
+            task = api.add_task(content=workout, project_id="2307581379")
+            print(workout)
+        except Exception as error:
+            print(error)
